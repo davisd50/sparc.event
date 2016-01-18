@@ -9,7 +9,6 @@ class SparcEvent(SparcEntity):
         super(SparcEvent, self).__init__(**kwargs)
         self._entities = kwargs['entities'] if 'entities' in kwargs else []
         self.datetime = kwargs['datetime']
-        self.url = kwargs['url'] if 'url' in kwargs else None
 
     def entities(self):
         for entity in self._entities:

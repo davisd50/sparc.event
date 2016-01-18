@@ -11,10 +11,6 @@ class IEvent(IEntity):
             description = _(u'The datetime of the event occurance'),
             required = True
             )
-    url = schema.TextLine(
-            title=_(u"URL to query results with event"),
-            description=_(u"convenience pointer to external system hosting event data"),
-            )
 
 class IAlert(IEntity):
     """An alert"""
