@@ -11,7 +11,6 @@ class SparcAlert(SparcEntity):
         self._events = kwargs['events'] if 'events' in kwargs else []
         self.datetime = kwargs['datetime']
         self.severity = kwargs['severity']
-        self.tags = kwargs['tags'] if 'tags' in kwargs else set()
 
     def events(self):
         for event in self._events:

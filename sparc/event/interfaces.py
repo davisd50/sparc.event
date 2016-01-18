@@ -1,6 +1,5 @@
 from zope import schema
 from sparc.entity import IEntity
-from sparc.entity import ITaggable
 from sparc.event import MessageFactory as _
 
 class IEvent(IEntity):
@@ -17,7 +16,7 @@ class IEvent(IEntity):
             description=_(u"convenience pointer to external system hosting event data"),
             )
 
-class IAlert(IEntity, ITaggable):
+class IAlert(IEntity):
     """An alert"""
     def events():
         """Returns iterable of ordered IEvent objects related to alert"""
