@@ -1,0 +1,46 @@
+Basic Sparc Event
+-------------------
+A Sparc alert is a notification that one or more events of significance have
+occured.  An alert is also a Sparc entity.
+
+
+We'll test a simple alert creation.  First we create a related event
+
+>>> from sparc.event import SparcEvent
+>>> from datetime import datetime
+>>> my_event_details = {
+... 			'id': '12345',
+...				'name': u'A event',
+...				'description': u'A event description',
+...				'datetime': datetime(2016, 1, 1)
+...				}
+>>> my_event = SparcEvent(**my_event_details)
+
+Now we can create an alert from this event
+
+>>> from sparc.event import SparcAlert
+>>> my_alert_details = {
+...				'id': '23456',
+...				'name': u'A alert',
+...				'description': u'An alert description',
+...				'datetime': datetime(2016, 1, 1),
+...				'events': [my_event],
+...				'severity': 'medium',
+...				'tags': set([u'tag1', u'tag2'])
+...				}
+>>> my_alert = SparcAlert(**my_alert_details)
+
+>>> my_alert.getId()
+'23456'
+>>> my_alert.name
+u'A alert'
+>>> my_alert.description
+u'An alert description'
+>>> my_alert.datetime
+datetime.datetime(2016, 1, 1, 0, 0)
+>>> list(my_alert.events())[0].getId()
+'12345'
+>>> my_alert.severity
+'medium'
+>>> assert my_alert.tags == set([u'tag1', u'tag2'])
+

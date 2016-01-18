@@ -1,0 +1,25 @@
+Basic Sparc Event
+-------------------
+A Sparc event is an occurance in time related to one or more external 
+Sparc entities.  A Sparc event is also an entity itself.  There is a convience
+class, SparcEvent, that can be used as a base classfor other implementations.
+
+We'll test a simple event creation. 
+
+>>> from sparc.event import SparcEvent
+>>> from datetime import datetime
+>>> my_event_details = {
+... 			'id': '12345',
+...				'name': u'A event',
+...				'description': u'A event description',
+...				'datetime': datetime(2016, 1, 1)
+...				}
+>>> my_event = SparcEvent(**my_event_details)
+>>> my_event.getId()
+'12345'
+>>> my_event.name
+u'A event'
+>>> my_event.description
+u'A event description'
+>>> my_event.datetime
+datetime.datetime(2016, 1, 1, 0, 0)
