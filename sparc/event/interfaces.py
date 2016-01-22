@@ -28,6 +28,3 @@ class IAlert(IEntity):
             required = True,
             values=[u'low',u'medium',u'high',u'critical']
             )
-
-class ISecurityAlert(IAlert):
-    """An alert related to events with security implications"""
