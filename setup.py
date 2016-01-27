@@ -35,7 +35,8 @@ setup(name='sparc.event',
           'setuptools',
           'zope.interface',
           'zope.component',
-          'sparc.entity'
+          'sparc.entity',
+          'sparc.asset'
           # -*- Extra requirements: -*-
       ],
       entry_points="""
