@@ -1,7 +1,6 @@
 from zope.interface import implements
 from sparc.entity import SparcEntity
 from interfaces import IAlert
-from interfaces import ISecurityAlert
 
 class SparcAlert(SparcEntity):
     implements(IAlert)
@@ -15,6 +14,3 @@ class SparcAlert(SparcEntity):
     def events(self):
         for event in self._events:
             yield event
-
-class SparcSecurityAlert(SparcAlert):
-    implements(ISecurityAlert)

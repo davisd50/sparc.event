@@ -1,4 +1,5 @@
 from zope import schema
+from zope.interface import Interface
 from sparc.entity import IEntity
 from sparc.event import MessageFactory as _
 
@@ -12,19 +13,22 @@ class IEvent(IEntity):
             required = True
             )
 
+class ITrigger():
+    """A trigger """
+
 class IAlert(IEntity):
     """An alert"""
     def events():
         """Returns iterable of ordered IEvent objects related to alert"""
         
     datetime = schema.Datetime(
-            title = _(u'Broadcast datetime'),
-            description = _(u'The datetime of the alert broadcast'),
+            title = _(u'Alert datetime'),
+            description = _(u'The datetime of the alert'),
             required = True
             )
     severity = schema.Choice(
             title = _(u'Alert severity'),
             description = _(u'Severity is based on criticality and fidelity'),
             required = True,
-            values=[u'low',u'medium',u'high',u'critical']
+            values=[u'informational',u'low',u'medium',u'high',u'critical']
             )
