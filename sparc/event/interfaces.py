@@ -13,9 +13,6 @@ class IEvent(IEntity):
             required = True
             )
 
-class ITrigger():
-    """A trigger """
-
 class IAlert(IEntity):
     """An alert"""
     def events():
