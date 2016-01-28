@@ -37,10 +37,17 @@ provide the alert's source system via sparc.asset.system.ISystem.
 ... except ValidationError:
 ...     pass
 
+before creating and alert, we also need to define the alert source system types
+within a vocab (requirement of sparc.asset.system.ISystem)
+>>> from sparc.asset.system.tests import register_system_types_vocab_from_values
+>>> register_system_types_vocab_from_values(['test_app'])
+
 Ok, now lets create and add a valid system
 >>> from zope.component import createObject
 >>> my_alert_details['system'] = createObject(u'sparc.asset.system', 
-... 											id=u'abcd', name=u'a name')
+... 											id=u'abcd', 
+... 											name=u'a name',
+... 											type='test_app')
 >>> my_alert = SparcAlert(**my_alert_details)
 
 >>> my_alert.getId()
