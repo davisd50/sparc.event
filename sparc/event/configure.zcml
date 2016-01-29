@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="sparc.event">
+    
+    <utility
+    	component=".event.sparcEventFactory"
+    	name="sparc.event.event"
+    	/>
+
+    <utility
+    	component=".alert.sparcAlertFactory"
+    	name="sparc.event.alert"
+    	/>
+
+</configure>

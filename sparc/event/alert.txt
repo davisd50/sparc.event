@@ -8,20 +8,19 @@ First, let configure ZCA
 >>> Configure()
 
 We'll test a simple alert creation.  First we create a related event
->>> from sparc.event import SparcEvent
+>>> from zope.component import createObject
 >>> from datetime import datetime
->>> my_event_details = {
+>>> kwargs = {
 ... 			'id': '12345',
 ...				'name': u'A event',
 ...				'description': u'A event description',
 ...				'datetime': datetime(2016, 1, 1)
 ...				}
->>> my_event = SparcEvent(**my_event_details)
+>>> my_event = createObject(u'sparc.event.event', **kwargs)
 
 Now we can create an alert from this event.  Among other things, we need to 
 provide the alert's source system via sparc.asset.system.ISystem.  
->>> from sparc.event import SparcAlert
->>> my_alert_details = {
+>>> kwargs = {
 ...				'id': '23456',
 ...				'name': u'A alert',
 ...				'description': u'An alert description',
@@ -32,7 +31,7 @@ provide the alert's source system via sparc.asset.system.ISystem.
 ...				}
 >>> from zope.schema import ValidationError
 >>> try:
-...     my_alert = SparcAlert(**my_alert_details)
+...     my_alert = createObject(u'sparc.event.alert', **kwargs)
 ...     assert False
 ... except ValidationError:
 ...     pass
@@ -43,12 +42,11 @@ within a vocab (requirement of sparc.asset.system.ISystem)
 >>> register_system_types_vocab_from_values(['test_app'])
 
 Ok, now lets create and add a valid system
->>> from zope.component import createObject
->>> my_alert_details['system'] = createObject(u'sparc.asset.system', 
+>>> kwargs['system'] = createObject(u'sparc.asset.system', 
 ... 											id=u'abcd', 
 ... 											name=u'a name',
 ... 											type='test_app')
->>> my_alert = SparcAlert(**my_alert_details)
+>>> my_alert = createObject(u'sparc.event.alert', **kwargs)
 
 >>> my_alert.getId()
 '23456'

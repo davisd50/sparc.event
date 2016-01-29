@@ -1,3 +1,4 @@
+from zope.component.factory import Factory
 from zope.interface import implements
 from zope.schema.fieldproperty import FieldProperty
 from sparc.entity import SparcEntity
@@ -20,3 +21,4 @@ class SparcAlert(SparcEntity):
     def events(self):
         for event in self._events:
             yield event
+sparcAlertFactory = Factory(SparcAlert)

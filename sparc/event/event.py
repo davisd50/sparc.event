@@ -1,3 +1,4 @@
+from zope.component.factory import Factory
 from zope.interface import implements
 from sparc.entity import SparcEntity
 from interfaces import IEvent
@@ -13,3 +14,4 @@ class SparcEvent(SparcEntity):
     def entities(self):
         for entity in self._entities:
             yield entity
+sparcEventFactory = Factory(SparcEvent)
