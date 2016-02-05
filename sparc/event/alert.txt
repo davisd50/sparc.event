@@ -43,7 +43,7 @@ within a vocab (requirement of sparc.asset.system.ISystem)
 
 Ok, now lets create and add a valid system
 >>> kwargs['system'] = createObject(u'sparc.asset.system', 
-... 											id=u'abcd', 
+... 											id='abcd', 
 ... 											name=u'a name',
 ... 											type='test_app')
 >>> my_alert = createObject(u'sparc.event.alert', **kwargs)
