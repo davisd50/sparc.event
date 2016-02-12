@@ -1,3 +1,4 @@
+from zope.interface import Interface
 from zope import schema
 from sparc.asset.system import ISystem
 from sparc.entity import IEntity
@@ -12,6 +13,11 @@ class IEvent(IEntity):
             description = _(u'The datetime of the event occurance'),
             required = True
             )
+
+class IEvents(Interface):
+    """An iterable of IEvent objects"""
+    def __iter__():
+        """Iterator of IEvent objects"""
 
 class IAlert(IEntity):
     """An alert"""
@@ -34,3 +40,8 @@ class IAlert(IEntity):
             description = _(u'System that alert was emitted from'),
             constraint = lambda v: ISystem.providedBy(v)
             )
+
+class IAlerts(Interface):
+    """An iterable of IAlert objects"""
+    def __iter__():
+        """Iterator of IAlert objects"""
