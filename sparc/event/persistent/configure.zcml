@@ -3,16 +3,13 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="sparc.event">
     
-    <include package=".persistent" />
-    
     <utility
-    	component=".event.sparcEventFactory"
-    	name="sparc.event.event"
+    	component=".event.persistentSparcEventFactory"
+    	name="sparc.event.persistent.event"
     	/>
-
     <utility
-    	component=".alert.sparcAlertFactory"
-    	name="sparc.event.alert"
+    	component=".alert.persistentSparcAlertFactory"
+    	name="sparc.event.persistent.alert"
     	/>
 
 </configure>
