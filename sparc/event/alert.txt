@@ -3,10 +3,6 @@ Basic Sparc Event
 A Sparc alert is a notification that one or more events of significance have
 occured.  An alert is also a Sparc entity.
 
-First, let configure ZCA
->>> from sparc.event import Configure
->>> Configure()
-
 We'll test a simple alert creation.  First we create a related event
 >>> from zope.component import createObject
 >>> from datetime import datetime
@@ -36,16 +32,11 @@ provide the alert's source system via sparc.asset.system.ISystem.
 ... except ValidationError:
 ...     pass
 
-before creating and alert, we also need to define the alert source system types
-within a vocab (requirement of sparc.asset.system.ISystem)
->>> from sparc.asset.system.tests import register_system_types_vocab_from_values
->>> register_system_types_vocab_from_values(['test_app'])
-
 Ok, now lets create and add a valid system
 >>> kwargs['system'] = createObject(u'sparc.asset.system', 
 ... 											id='abcd', 
 ... 											name=u'a name',
-... 											type='test_app')
+... 											type='test_type_1')
 >>> my_alert = createObject(u'sparc.event.alert', **kwargs)
 
 >>> my_alert.getId()

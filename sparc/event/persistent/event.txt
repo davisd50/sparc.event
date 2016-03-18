@@ -4,10 +4,6 @@ Persistent Sparc Event
 This is an implementation of sparc.event.IEvent that can be persisted into
 a ZODB data store.
 
-Configure the ZCA registry
->>> from sparc.event import Configure
->>> Configure()
-
 Create and test a persistent entity
 >>> from zope.component import createObject
 >>> from persistent.interfaces import IPersistent

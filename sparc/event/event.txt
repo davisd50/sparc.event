@@ -4,10 +4,6 @@ A Sparc event is an occurance in time related to one or more external
 Sparc entities.  A Sparc event is also an entity itself.  There is a convience
 class, SparcEvent, that can be used as a base classfor other implementations.
 
-Configuration
->>> from sparc.event import Configure
->>> Configure()
-
 We'll test a simple event creation. 
 
 >>> from zope.component import createObject

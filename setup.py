@@ -33,6 +33,7 @@ setup(name='sparc.event',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'persistent',
           'zope.interface',
           'zope.component',
           'sparc.entity',
