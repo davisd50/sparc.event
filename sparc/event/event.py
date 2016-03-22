@@ -15,6 +15,5 @@ class SparcEvent(SparcEntity):
     datetime = FieldProperty(IEvent['datetime'])
 
     def entities(self):
-        for entity in self._entities:
-            yield entity
+        return iter(self._entities) # pickle-safe
 sparcEventFactory = Factory(SparcEvent)

@@ -19,6 +19,5 @@ class SparcAlert(SparcEntity):
     system = FieldProperty(IAlert['system'])
 
     def events(self):
-        for event in self._events:
-            yield event
+        return iter(self._events) #pickle safe
 sparcAlertFactory = Factory(SparcAlert)
