@@ -17,9 +17,9 @@ We'll test a simple event creation.
 >>> my_event = createObject(u'sparc.event.event', **kwargs)
 >>> my_event.getId()
 '12345'
->>> my_event.name
-u'A event'
->>> my_event.description
-u'A event description'
+>>> my_event.name == 'A event'
+True
+>>> my_event.description == 'A event description'
+True
 >>> my_event.datetime
 datetime.datetime(2016, 1, 1, 0, 0)

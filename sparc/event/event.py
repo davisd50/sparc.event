@@ -1,11 +1,11 @@
 from zope.component.factory import Factory
-from zope.interface import implements
+from zope import interface
 from zope.schema.fieldproperty import FieldProperty
 from sparc.entity import SparcEntity
-from interfaces import IEvent
+from .interfaces import IEvent
 
+@interface.implementer(IEvent)
 class SparcEvent(SparcEntity):
-    implements(IEvent)
     
     def __init__(self, **kwargs):
         super(SparcEvent, self).__init__(**kwargs)

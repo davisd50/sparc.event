@@ -41,17 +41,17 @@ Ok, now lets create and add a valid system
 
 >>> my_alert.getId()
 '23456'
->>> my_alert.name
-u'A alert'
->>> my_alert.description
-u'An alert description'
+>>> my_alert.name == 'A alert'
+True
+>>> my_alert.description == 'An alert description'
+True
 >>> my_alert.datetime
 datetime.datetime(2016, 1, 1, 0, 0)
 >>> list(my_alert.events())[0].getId()
 '12345'
 >>> my_alert.severity
 'medium'
->>> my_alert.system.name
-u'a name'
+>>> my_alert.system.name == 'a name'
+True
 
 

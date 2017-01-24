@@ -1,11 +1,11 @@
 from zope.component.factory import Factory
-from zope.interface import implements
+from zope import interface
 from zope.schema.fieldproperty import FieldProperty
 from sparc.entity import SparcEntity
-from interfaces import IAlert
+from .interfaces import IAlert
 
+@interface.implementer(IAlert)
 class SparcAlert(SparcEntity):
-    implements(IAlert)
     
     def __init__(self, **kwargs):
         super(SparcAlert, self).__init__(**kwargs)
